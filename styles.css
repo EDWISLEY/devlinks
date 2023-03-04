@@ -23,7 +23,7 @@
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: transparent;
   --surface-color-hover: rgb(211, 211, 211);
-  /*--highlight-color: rgb(211, 211, 211);*/
+  --highlight-color: rgb(211, 211, 211);
   --switch-bg-url: url(./assets/icons8-smiling-sun.png);
   --border-icon: 1px solid black;
   --background-color: transparent;
@@ -34,6 +34,7 @@ body {
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
+  /*height: 100vh;*/
 }
 
 body * {
@@ -81,26 +82,32 @@ body * {
   width: 32px;
   background-image: var(--switch-bg-url);
   background-color: var(--background-color);
-  border: transparent;
+  border: 0;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-
   position: absolute;
   z-index: 1;
-  right: 0;
+  left: 0;
   top: 50%;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
+  animation: slide-back 0.4s;
+  -webkit-animation: slide-back 0.4s;
 }
 
 .ligth #switch button {
-  left: 0;
+  animation: slide-in 0.4s forwards;
+  -webkit-animation: slide-in 0.4s forwards;
+}
+
+#switch > button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch > span {
@@ -196,4 +203,24 @@ footer {
 
 footer a {
   text-decoration: none;
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 0;
+  }
 }
