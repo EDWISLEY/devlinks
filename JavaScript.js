@@ -7,9 +7,9 @@ function toggleMode() {
   const img = document.querySelector("#profile img")
 
   if(html.classList.contains('ligth')){
-    img.setAttribute('src', './assets/avatar-light.png')
+    img.setAttribute('src', './assets/edw-100x100.png')
   } else {
-    img.setAttribute('src', './assets/avatar.png')
+    img.setAttribute('src', './assets/edw-100x100.png')
   }
 
 }
